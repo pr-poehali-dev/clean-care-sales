@@ -49,6 +49,7 @@ export default function Index() {
   const [cartOpen, setCartOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("Все");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [selectedDelivery, setSelectedDelivery] = useState<string | null>(null);
 
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
   const cartTotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
@@ -462,22 +463,35 @@ export default function Index() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
             {[
-              { icon: "Zap", color: "text-vivid-yellow", bg: "border-vivid-yellow/20", title: "Экспресс", time: "1–2 дня", price: "590 ₽", desc: "Курьерская доставка до двери" },
-              { icon: "Truck", color: "text-vivid-cyan", bg: "border-vivid-cyan/20", title: "Стандарт", time: "3–5 дней", price: "290 ₽", desc: "Доставка в пункт выдачи" },
-              { icon: "Package", color: "text-vivid-pink", bg: "border-vivid-pink/20", title: "Бесплатно", time: "5–7 дней", price: "0 ₽", desc: "При заказе от 5 000 ₽" },
-            ].map(item => (
-              <div key={item.title} className={`p-6 rounded-2xl bg-vivid-card border ${item.bg} card-hover`}>
-                <Icon name={item.icon} size={32} className={`${item.color} mb-4`} />
+              { icon: "Truck", color: "text-vivid-cyan", bg: "border-vivid-cyan/20", activeBg: "border-vivid-cyan bg-vivid-cyan/10", title: "Стандарт", time: "3–5 дней", price: 290, priceLabel: "290 ₽", desc: "Доставка в пункт выдачи" },
+              { icon: "Package", color: "text-vivid-pink", bg: "border-vivid-pink/20", activeBg: "border-vivid-pink bg-vivid-pink/10", title: "Бесплатно", time: "5–7 дней", price: 0, priceLabel: "0 ₽", desc: "При заказе от 5 000 ₽" },
+            ].map(item => {
+              const isSelected = selectedDelivery === item.title;
+              const handleSelect = () => {
+                setSelectedDelivery(item.title);
+                setCart(prev => {
+                  const filtered = prev.filter(i => i.id !== -1);
+                  if (item.price === 0) return filtered;
+                  return [...filtered, { id: -1, name: `Доставка: ${item.title}`, price: item.price, category: "Доставка", image: "", qty: 1 }];
+                });
+              };
+              return (
+              <div key={item.title} onClick={handleSelect} className={`p-6 rounded-2xl bg-vivid-card border cursor-pointer transition-all ${isSelected ? item.activeBg : item.bg} card-hover`}>
+                <div className="flex justify-between items-start mb-4">
+                  <Icon name={item.icon} size={32} className={`${item.color}`} />
+                  {isSelected && <span className={`text-xs font-semibold px-2 py-1 rounded-full ${item.color} bg-white/10`}>Выбрано</span>}
+                </div>
                 <h3 className="font-oswald text-xl font-semibold text-white mb-1">{item.title}</h3>
                 <p className="text-white/40 text-sm mb-4">{item.desc}</p>
                 <div className="flex justify-between items-center pt-4 border-t border-white/10">
                   <span className="text-white/40 text-sm">{item.time}</span>
-                  <span className={`font-oswald text-xl font-bold ${item.color}`}>{item.price}</span>
+                  <span className={`font-oswald text-xl font-bold ${item.color}`}>{item.priceLabel}</span>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="p-6 rounded-2xl bg-vivid-card border border-white/10">
