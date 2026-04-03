@@ -497,9 +497,23 @@ export default function Index() {
           <div className="p-6 rounded-2xl bg-vivid-card border border-white/10">
             <h3 className="font-oswald text-xl font-semibold text-white mb-4">Способы оплаты</h3>
             <div className="flex flex-wrap gap-3">
-              {["📱 СБП", "💳 2204 3210 2578 1980 (Озон Банк)", "💳 2202 2018 0765 3494 (Сбер Банк)"].map(pay => (
-                <span key={pay} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm text-white/60">{pay}</span>
-              ))}
+              <span className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm text-white/60">📱 СБП</span>
+              <a
+                href="https://www.ozon.ru/t/transfer/?cardNumber=2204321025781980"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-xl bg-white/5 border border-vivid-cyan/30 text-sm text-vivid-cyan hover:bg-vivid-cyan/10 transition-colors"
+              >
+                💳 2204 3210 2578 1980 — Озон Банк
+              </a>
+              <a
+                href="https://www.sberbank.ru/ru/person/transfermoney/p2p?cardNumber=2202201807653494"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-xl bg-white/5 border border-vivid-green/30 text-sm text-vivid-green hover:bg-vivid-green/10 transition-colors"
+              >
+                💳 2202 2018 0765 3494 — Сбер Банк
+              </a>
             </div>
           </div>
         </div>
