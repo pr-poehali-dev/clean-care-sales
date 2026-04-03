@@ -57,6 +57,25 @@ export default function Index() {
   const [reviewSubmitting, setReviewSubmitting] = useState(false);
   const [reviewSuccess, setReviewSuccess] = useState(false);
   const [showReviewForm, setShowReviewForm] = useState(false);
+  const [contactForm, setContactForm] = useState({ name: "", contact: "", delivery: "", message: "" });
+  const [contactSending, setContactSending] = useState(false);
+  const [contactSent, setContactSent] = useState(false);
+
+  const submitContact = async () => {
+    if (!contactForm.name.trim() || !contactForm.message.trim()) return;
+    setContactSending(true);
+    try {
+      await fetch("https://functions.poehali.dev/c115ba24-4a2d-4c3f-9570-97869834fe9c", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(contactForm),
+      });
+      setContactSent(true);
+      setContactForm({ name: "", contact: "", delivery: "", message: "" });
+      setTimeout(() => setContactSent(false), 4000);
+    } catch (e) { console.error(e); }
+    setContactSending(false);
+  };
 
   useEffect(() => {
     fetch(REVIEWS_URL)
@@ -668,35 +687,45 @@ export default function Index() {
                 <input
                   type="text"
                   placeholder="Ваше имя"
+                  value={contactForm.name}
+                  onChange={e => setContactForm(p => ({ ...p, name: e.target.value }))}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-vivid-pink/50 focus:outline-none text-white placeholder:text-white/25 transition-colors text-sm"
                 />
                 <input
                   type="tel"
                   placeholder="Телефон или email"
+                  value={contactForm.contact}
+                  onChange={e => setContactForm(p => ({ ...p, contact: e.target.value }))}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-vivid-pink/50 focus:outline-none text-white placeholder:text-white/25 transition-colors text-sm"
                 />
                 <div>
                   <p className="text-white/40 text-xs mb-2 pl-1">Способ доставки</p>
                   <select
+                    value={contactForm.delivery}
+                    onChange={e => setContactForm(p => ({ ...p, delivery: e.target.value }))}
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-vivid-pink/50 focus:outline-none text-white transition-colors text-sm appearance-none cursor-pointer"
                     style={{ backgroundColor: '#14141E' }}
-                    defaultValue=""
                   >
-                    <option value="" disabled className="bg-vivid-card text-white/40">Выберите способ доставки</option>
-                    <option value="courier" className="bg-vivid-card text-white">⚡ Экспресс-курьер (1–2 дня) — 590 ₽</option>
-                    <option value="pickup" className="bg-vivid-card text-white">🚚 Стандарт в пункт выдачи (3–5 дней) — 290 ₽</option>
-                    <option value="post" className="bg-vivid-card text-white">📦 Почта России (5–7 дней) — бесплатно от 5 000 ₽</option>
-                    <option value="sdek" className="bg-vivid-card text-white">📬 СДЭК (2–4 дня) — 350 ₽</option>
+                    <option value="" className="bg-vivid-card text-white/40">Выберите способ доставки</option>
+                    <option value="Стандарт (3–5 дней) — 290 ₽" className="bg-vivid-card text-white">🚚 Стандарт в пункт выдачи (3–5 дней) — 290 ₽</option>
+                    <option value="Бесплатно (5–7 дней)" className="bg-vivid-card text-white">📦 Бесплатно (5–7 дней) — от 5 000 ₽</option>
                   </select>
                 </div>
                 <textarea
                   rows={3}
                   placeholder="Ваш вопрос или сообщение..."
+                  value={contactForm.message}
+                  onChange={e => setContactForm(p => ({ ...p, message: e.target.value }))}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-vivid-pink/50 focus:outline-none text-white placeholder:text-white/25 transition-colors resize-none text-sm"
                 />
               </div>
-              <button className="w-full py-3.5 rounded-xl gradient-btn font-oswald font-semibold text-lg text-white tracking-wide">
-                Отправить сообщение
+              {contactSent && <p className="text-center text-vivid-cyan text-sm">✓ Сообщение отправлено! Ответим в течение часа.</p>}
+              <button
+                onClick={submitContact}
+                disabled={contactSending}
+                className="w-full py-3.5 rounded-xl gradient-btn font-oswald font-semibold text-lg text-white tracking-wide disabled:opacity-50"
+              >
+                {contactSending ? "Отправка..." : "Отправить сообщение"}
               </button>
 
               <div className="pt-2 border-t border-white/10">
