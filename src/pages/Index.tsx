@@ -20,7 +20,7 @@ const PRODUCTS: Product[] = [
   { id: 1, name: "Набор многоразовых трубочек", price: 230, category: "Кухня", badge: "ХИТ", badgeColor: "bg-vivid-pink", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/278a6662-abaf-4a8e-b157-f264fb789a9c.jpg" },
   { id: 2, name: "Баночки для соусов 4 шт.", price: 260, category: "Кухня", badge: "НОВИНКА", badgeColor: "bg-vivid-cyan text-vivid-dark", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/bucket/95e926cd-61da-4685-9ca9-9efd76c33f29.jpg" },
   { id: 3, name: "Миски для соусов", price: 320, category: "Кухня", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/bucket/e6012c69-d63a-4f41-b83b-f13fbd6448d9.jpg" },
-  { id: 4, name: "Соусники", price: 450, category: "Кухня", badge: "ТОП", badgeColor: "bg-vivid-purple", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/49825b97-7d9e-49df-8273-9a78a70be8b5.jpg" },
+  { id: 4, name: "Соусники 3 шт.", price: 450, category: "Кухня", badge: "ТОП", badgeColor: "bg-vivid-purple", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/bucket/35cd5c2c-146f-4b20-853c-9f9b70071637.jpg" },
   { id: 5, name: "Кружки для чая или кофе", price: 490, category: "Кухня", badge: "НОВИНКА", badgeColor: "bg-vivid-orange", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/8510e49a-4c30-4d97-8a99-370571211103.jpg" },
   { id: 6, name: "Распылитель для масла", price: 230, category: "Кухня", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/bucket/908af635-07d1-4f9b-aa36-edb52f36c5e5.jpg" },
 ];
