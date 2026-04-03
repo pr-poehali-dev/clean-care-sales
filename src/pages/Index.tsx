@@ -17,15 +17,14 @@ interface CartItem extends Product {
 }
 
 const PRODUCTS: Product[] = [
-  { id: 1, name: "Oversized Hoodie «NEON»", price: 4990, oldPrice: 7200, category: "Одежда", badge: "ХИТ", badgeColor: "bg-vivid-pink", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/e2e1a5ab-71d3-4ba0-bc30-f70e3b8b7474.jpg" },
-  { id: 2, name: "Кроссовки «PULSE MAX»", price: 8900, oldPrice: 12000, category: "Обувь", badge: "−26%", badgeColor: "bg-vivid-orange", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/75dc82a4-e882-4098-b264-4bfe89ed351d.jpg" },
-  { id: 3, name: "Сумка-тоут «VIBRANT»", price: 3200, category: "Аксессуары", badge: "НОВИНКА", badgeColor: "bg-vivid-cyan text-vivid-dark", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/aa1667fa-e7f8-4c48-ac22-d01ef62b57bb.jpg" },
-  { id: 4, name: "Джинсы «ACID WASH»", price: 5600, oldPrice: 6800, category: "Одежда", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/e2e1a5ab-71d3-4ba0-bc30-f70e3b8b7474.jpg" },
-  { id: 5, name: "Очки «CHROME WAVE»", price: 2100, category: "Аксессуары", badge: "ТОП", badgeColor: "bg-vivid-purple", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/75dc82a4-e882-4098-b264-4bfe89ed351d.jpg" },
-  { id: 6, name: "Куртка «STREET FLOW»", price: 12500, oldPrice: 16000, category: "Одежда", badge: "−22%", badgeColor: "bg-vivid-orange", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/aa1667fa-e7f8-4c48-ac22-d01ef62b57bb.jpg" },
+  { id: 1, name: "Набор многоразовых трубочек", price: 230, category: "Кухня", badge: "ХИТ", badgeColor: "bg-vivid-pink", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/278a6662-abaf-4a8e-b157-f264fb789a9c.jpg" },
+  { id: 2, name: "Баночки для соусов", price: 260, category: "Кухня", badge: "НОВИНКА", badgeColor: "bg-vivid-cyan text-vivid-dark", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/937afeee-7028-4486-847d-77b9c3cb9efa.jpg" },
+  { id: 3, name: "Миски для соусов", price: 320, category: "Кухня", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/b19519ae-037b-4f3e-8753-54a61c1f9034.jpg" },
+  { id: 4, name: "Соусники", price: 450, category: "Кухня", badge: "ТОП", badgeColor: "bg-vivid-purple", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/64cb6dab-cf6d-465f-aa20-e5b6908f388f.jpg" },
+  { id: 5, name: "Кружки для чая или кофе", price: 490, category: "Кухня", badge: "НОВИНКА", badgeColor: "bg-vivid-orange", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/fde0ab0b-f7c3-4b98-ab7a-5a981ce3795d.jpg" },
 ];
 
-const CATEGORIES = ["Все", "Одежда", "Обувь", "Аксессуары"];
+const CATEGORIES = ["Все", "Кухня"];
 
 const REVIEWS = [
   { id: 1, name: "Алина К.", rating: 5, text: "Очень довольна покупкой! Товар точь-в-точь как на фото, качество отличное. Доставка быстрая, упаковано аккуратно. Буду заказывать ещё!", avatar: "А" },
