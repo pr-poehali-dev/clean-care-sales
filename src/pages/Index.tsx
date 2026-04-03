@@ -22,6 +22,7 @@ const PRODUCTS: Product[] = [
   { id: 3, name: "Миски для соусов", price: 320, category: "Кухня", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/b8c54582-ed28-4e68-8de7-c8404d262b4c.jpg" },
   { id: 4, name: "Соусники", price: 450, category: "Кухня", badge: "ТОП", badgeColor: "bg-vivid-purple", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/49825b97-7d9e-49df-8273-9a78a70be8b5.jpg" },
   { id: 5, name: "Кружки для чая или кофе", price: 490, category: "Кухня", badge: "НОВИНКА", badgeColor: "bg-vivid-orange", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/8510e49a-4c30-4d97-8a99-370571211103.jpg" },
+  { id: 6, name: "Распылитель для масла", price: 230, category: "Кухня", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/bucket/908af635-07d1-4f9b-aa36-edb52f36c5e5.jpg" },
 ];
 
 const CATEGORIES = ["Все", "Кухня"];
