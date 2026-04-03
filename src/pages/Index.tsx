@@ -18,10 +18,10 @@ interface CartItem extends Product {
 
 const PRODUCTS: Product[] = [
   { id: 1, name: "Набор многоразовых трубочек", price: 230, category: "Кухня", badge: "ХИТ", badgeColor: "bg-vivid-pink", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/278a6662-abaf-4a8e-b157-f264fb789a9c.jpg" },
-  { id: 2, name: "Баночки для соусов", price: 260, category: "Кухня", badge: "НОВИНКА", badgeColor: "bg-vivid-cyan text-vivid-dark", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/937afeee-7028-4486-847d-77b9c3cb9efa.jpg" },
-  { id: 3, name: "Миски для соусов", price: 320, category: "Кухня", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/b19519ae-037b-4f3e-8753-54a61c1f9034.jpg" },
-  { id: 4, name: "Соусники", price: 450, category: "Кухня", badge: "ТОП", badgeColor: "bg-vivid-purple", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/64cb6dab-cf6d-465f-aa20-e5b6908f388f.jpg" },
-  { id: 5, name: "Кружки для чая или кофе", price: 490, category: "Кухня", badge: "НОВИНКА", badgeColor: "bg-vivid-orange", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/fde0ab0b-f7c3-4b98-ab7a-5a981ce3795d.jpg" },
+  { id: 2, name: "Баночки для соусов", price: 260, category: "Кухня", badge: "НОВИНКА", badgeColor: "bg-vivid-cyan text-vivid-dark", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/d86a0d92-3d6f-49f0-980d-7f8dc1a2bb54.jpg" },
+  { id: 3, name: "Миски для соусов", price: 320, category: "Кухня", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/b8c54582-ed28-4e68-8de7-c8404d262b4c.jpg" },
+  { id: 4, name: "Соусники", price: 450, category: "Кухня", badge: "ТОП", badgeColor: "bg-vivid-purple", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/49825b97-7d9e-49df-8273-9a78a70be8b5.jpg" },
+  { id: 5, name: "Кружки для чая или кофе", price: 490, category: "Кухня", badge: "НОВИНКА", badgeColor: "bg-vivid-orange", image: "https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/8510e49a-4c30-4d97-8a99-370571211103.jpg" },
 ];
 
 const CATEGORIES = ["Все", "Кухня"];
