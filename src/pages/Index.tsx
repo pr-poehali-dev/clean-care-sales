@@ -580,23 +580,42 @@ export default function Index() {
 
               <div className="pt-2 border-t border-white/10">
                 <p className="text-white/30 text-xs mb-3">Или напишите напрямую менеджеру:</p>
-                <a
-                  href="https://t.me/Dmitriy_Alexeevich1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#229ED9]/10 border border-[#229ED9]/30 hover:bg-[#229ED9]/20 hover:border-[#229ED9]/50 transition-all duration-200 group"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-[#229ED9] flex items-center justify-center flex-shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.91c-.12.57-.45.71-.91.44l-2.52-1.86-1.22 1.17c-.13.13-.25.25-.51.25l.18-2.57 4.65-4.2c.2-.18-.04-.28-.31-.1L7.9 15.04l-2.46-.77c-.53-.17-.54-.53.12-.78l9.61-3.71c.44-.16.83.11.47.02z"/>
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-semibold text-white group-hover:text-[#229ED9] transition-colors">@Dmitriy_Alexeevich1</p>
-                    <p className="text-white/30 text-xs">Менеджер — ответит быстро</p>
-                  </div>
-                  <Icon name="ArrowRight" size={16} className="text-white/30 group-hover:text-[#229ED9] transition-colors" />
-                </a>
+                <div className="space-y-2">
+                  <a
+                    href="https://t.me/Dmitriy_Alexeevich1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#229ED9]/10 border border-[#229ED9]/30 hover:bg-[#229ED9]/20 hover:border-[#229ED9]/50 transition-all duration-200 group"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-[#229ED9] flex items-center justify-center flex-shrink-0">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.91c-.12.57-.45.71-.91.44l-2.52-1.86-1.22 1.17c-.13.13-.25.25-.51.25l.18-2.57 4.65-4.2c.2-.18-.04-.28-.31-.1L7.9 15.04l-2.46-.77c-.53-.17-.54-.53.12-.78l9.61-3.71c.44-.16.83.11.47.02z"/>
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-white group-hover:text-[#229ED9] transition-colors">@Dmitriy_Alexeevich1</p>
+                      <p className="text-white/30 text-xs">Telegram — менеджер по заказам</p>
+                    </div>
+                    <Icon name="ArrowRight" size={16} className="text-white/30 group-hover:text-[#229ED9] transition-colors" />
+                  </a>
+                  <a
+                    href="https://vk.ru/jeess_leess"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#4C75A3]/10 border border-[#4C75A3]/30 hover:bg-[#4C75A3]/20 hover:border-[#4C75A3]/60 transition-all duration-200 group"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-[#4C75A3] flex items-center justify-center flex-shrink-0">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.547 7h-3.29a.743.743 0 0 0-.655.392s-1.312 2.416-1.734 3.23C14.734 12.813 14 12.126 14 11.11V7.603A1.104 1.104 0 0 0 12.896 6.5h-2.474a1.982 1.982 0 0 0-1.75.813s1.255-.204 1.255 1.49c0 .42.022 1.626.04 2.64a.73.73 0 0 1-1.272.503 21.54 21.54 0 0 1-2.498-4.543.693.693 0 0 0-.63-.403h-2.99a.508.508 0 0 0-.48.685C3.005 10.175 6.918 18 11.38 18h1.878a.742.742 0 0 0 .742-.742v-1.135a.73.73 0 0 1 1.23-.53l2.247 2.112a1.09 1.09 0 0 0 .746.295h2.953c1.424 0 1.424-.988.647-1.753-.546-.538-2.518-2.617-2.518-2.617a1.02 1.02 0 0 1-.078-1.323c.637-.84 1.68-2.212 2.122-2.8.603-.804 1.697-2.507.197-2.507z"/>
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-white group-hover:text-[#4C75A3] transition-colors">jeess_leess</p>
+                      <p className="text-white/30 text-xs">ВКонтакте — менеджер по покупкам</p>
+                    </div>
+                    <Icon name="ArrowRight" size={16} className="text-white/30 group-hover:text-[#4C75A3] transition-colors" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
