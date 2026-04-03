@@ -28,10 +28,10 @@ const PRODUCTS: Product[] = [
 const CATEGORIES = ["Все", "Одежда", "Обувь", "Аксессуары"];
 
 const REVIEWS = [
-  { id: 1, name: "Алина К.", rating: 5, text: "Обожаю этот магазин! Качество просто огонь, всё пришло быстро, упаковка супер.", avatar: "А" },
-  { id: 2, name: "Максим Р.", rating: 5, text: "Заказываю уже третий раз. Стиль реально отличный, всё соответствует фото.", avatar: "М" },
-  { id: 3, name: "Дарья В.", rating: 5, text: "Наконец-то нашла магазин с актуальными трендами! Кроссовки — это вообще шедевр.", avatar: "Д" },
-  { id: 4, name: "Илья С.", rating: 4, text: "Отличный сервис, быстрая доставка. Буду заказывать ещё!", avatar: "И" },
+  { id: 1, name: "Алина К.", rating: 5, text: "Очень довольна покупкой! Товар точь-в-точь как на фото, качество отличное. Доставка быстрая, упаковано аккуратно. Буду заказывать ещё!", avatar: "А" },
+  { id: 2, name: "Максим Р.", rating: 5, text: "Заказывал уже несколько раз — всегда всё на высшем уровне. Товар из-за рубежа, но цены очень приятные. Рекомендую всем!", avatar: "М" },
+  { id: 3, name: "Дарья В.", rating: 5, text: "Нашла здесь то, что давно искала. Качество превзошло ожидания, менеджер ответил мгновенно и помог с выбором. Спасибо огромное!", avatar: "Д" },
+  { id: 4, name: "Илья С.", rating: 5, text: "Отличный магазин! Цены ниже, чем где-либо, а качество — выше всяких похвал. Получил заказ быстро, всё в целости.", avatar: "И" },
 ];
 
 const NAV_LINKS = [
@@ -291,7 +291,7 @@ export default function Index() {
               </button>
             </div>
             <div className="flex gap-8 animate-fade-in animate-delay-400">
-              {[["500+", "товаров"], ["48 ч", "доставка"], ["4.9★", "рейтинг"]].map(([num, label]) => (
+              {[["500+", "товаров"], ["48 ч", "доставка"], ["5.0★", "рейтинг"]].map(([num, label]) => (
                 <div key={label}>
                   <div className="font-oswald text-2xl font-bold gradient-text">{num}</div>
                   <div className="text-white/30 text-sm">{label}</div>
@@ -424,10 +424,7 @@ export default function Index() {
                 </h2>
               </div>
               <p className="text-white/50 text-lg leading-relaxed">
-                VIVID — это не просто магазин, это пространство для тех, кто живёт ярко. Мы выбираем только самые актуальные тренды мировой моды и делаем их доступными.
-              </p>
-              <p className="text-white/40 leading-relaxed">
-                Каждая вещь в нашем каталоге проходит строгий отбор — только качественные материалы, честные цены и стиль, который говорит сам за себя.
+                Наш магазин предлагает вам качественный товар из-за рубежа по низким ценам.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
@@ -453,7 +450,7 @@ export default function Index() {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 glass neon-border-cyan rounded-2xl p-5">
-                <p className="font-oswald text-4xl font-bold gradient-text-cool">2018</p>
+                <p className="font-oswald text-4xl font-bold gradient-text-cool">2026</p>
                 <p className="text-white/40 text-sm">год основания</p>
               </div>
             </div>
@@ -493,7 +490,7 @@ export default function Index() {
           <div className="p-6 rounded-2xl bg-vivid-card border border-white/10">
             <h3 className="font-oswald text-xl font-semibold text-white mb-4">Способы оплаты</h3>
             <div className="flex flex-wrap gap-3">
-              {["💳 Карта Visa/MC", "📱 SberPay", "📱 T-Pay", "💰 Наличными", "🔄 Рассрочка"].map(pay => (
+              {["📱 СБП", "💳 2204 3210 2578 1980 (Озон Банк)", "💳 2202 2018 0765 3494 (Сбер Банк)"].map(pay => (
                 <span key={pay} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm text-white/60">{pay}</span>
               ))}
             </div>
@@ -550,10 +547,9 @@ export default function Index() {
 
               <div className="space-y-3">
                 {[
-                  { icon: "Phone", label: "Телефон", value: "+7 (800) 555-00-00", color: "text-vivid-cyan" },
-                  { icon: "Mail", label: "Email", value: "hello@vivid.store", color: "text-vivid-pink" },
-                  { icon: "MapPin", label: "Адрес", value: "Москва, ул. Арбат, 24", color: "text-vivid-orange" },
-                  { icon: "Clock", label: "Режим работы", value: "Пн–Вс: 9:00 – 21:00", color: "text-vivid-yellow" },
+                  { icon: "MapPin", label: "Адрес 1", value: "г. Краснодар", color: "text-vivid-orange" },
+                  { icon: "MapPin", label: "Адрес 2", value: "Ростовская область", color: "text-vivid-pink" },
+                  { icon: "Clock", label: "Режим работы", value: "Пн–Пт: 8:00 – 20:00 (МСК)", color: "text-vivid-yellow" },
                 ].map(item => (
                   <div key={item.label} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all">
                     <Icon name={item.icon} size={20} className={item.color} />
