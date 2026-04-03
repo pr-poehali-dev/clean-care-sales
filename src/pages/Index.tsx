@@ -102,8 +102,8 @@ export default function Index() {
       <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollTo("home")}>
-            <span className="font-oswald text-2xl font-bold gradient-text">VIVID</span>
-            <span className="text-white/30 text-xs font-golos mt-1">STORE</span>
+            <span className="font-oswald text-2xl font-bold gradient-text">ЯРКИЙ</span>
+            <span className="text-vivid-orange font-oswald text-2xl font-bold">ВЫБОР</span>
           </div>
 
           <div className="hidden md:flex items-center gap-6">
@@ -288,7 +288,7 @@ export default function Index() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-white/40 text-xs">Хит продаж</p>
-                      <p className="font-semibold text-white text-sm">Oversized Hoodie «NEON»</p>
+                      <p className="font-semibold text-white text-sm">Яркий Выбор — твой стиль</p>
                     </div>
                     <div className="text-right">
                       <p className="text-white/30 text-xs line-through">7 200 ₽</p>
@@ -572,8 +572,8 @@ export default function Index() {
       <footer className="border-t border-white/10 py-10 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollTo("home")}>
-            <span className="font-oswald text-xl font-bold gradient-text">VIVID</span>
-            <span className="text-white/20 text-xs">STORE</span>
+            <span className="font-oswald text-xl font-bold gradient-text">ЯРКИЙ</span>
+            <span className="text-vivid-orange font-oswald text-xl font-bold">ВЫБОР</span>
           </div>
           <p className="text-white/25 text-sm">© 2026 VIVID Store. Все права защищены.</p>
           <div className="flex gap-5 flex-wrap justify-center">
