@@ -441,17 +441,10 @@ export default function Index() {
                 ))}
               </div>
             </div>
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden neon-border-cyan">
-                <img
-                  src="https://cdn.poehali.dev/projects/e6438cfe-3961-4c68-8ad8-24f852060995/files/aa1667fa-e7f8-4c48-ac22-d01ef62b57bb.jpg"
-                  alt="О магазине"
-                  className="w-full h-[460px] object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 glass neon-border-cyan rounded-2xl p-5">
-                <p className="font-oswald text-4xl font-bold gradient-text-cool">2026</p>
-                <p className="text-white/40 text-sm">год основания</p>
+            <div className="flex items-center justify-center neon-border-cyan rounded-3xl p-10">
+              <div className="text-center">
+                <p className="font-oswald text-8xl font-bold gradient-text-cool">2026</p>
+                <p className="text-white/40 text-lg mt-2">год основания</p>
               </div>
             </div>
           </div>
