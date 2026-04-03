@@ -554,8 +554,22 @@ export default function Index() {
                   placeholder="Телефон или email"
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-vivid-pink/50 focus:outline-none text-white placeholder:text-white/25 transition-colors text-sm"
                 />
+                <div>
+                  <p className="text-white/40 text-xs mb-2 pl-1">Способ доставки</p>
+                  <select
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-vivid-pink/50 focus:outline-none text-white transition-colors text-sm appearance-none cursor-pointer"
+                    style={{ backgroundColor: '#14141E' }}
+                    defaultValue=""
+                  >
+                    <option value="" disabled className="bg-vivid-card text-white/40">Выберите способ доставки</option>
+                    <option value="courier" className="bg-vivid-card text-white">⚡ Экспресс-курьер (1–2 дня) — 590 ₽</option>
+                    <option value="pickup" className="bg-vivid-card text-white">🚚 Стандарт в пункт выдачи (3–5 дней) — 290 ₽</option>
+                    <option value="post" className="bg-vivid-card text-white">📦 Почта России (5–7 дней) — бесплатно от 5 000 ₽</option>
+                    <option value="sdek" className="bg-vivid-card text-white">📬 СДЭК (2–4 дня) — 350 ₽</option>
+                  </select>
+                </div>
                 <textarea
-                  rows={4}
+                  rows={3}
                   placeholder="Ваш вопрос или сообщение..."
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-vivid-pink/50 focus:outline-none text-white placeholder:text-white/25 transition-colors resize-none text-sm"
                 />
@@ -563,6 +577,27 @@ export default function Index() {
               <button className="w-full py-3.5 rounded-xl gradient-btn font-oswald font-semibold text-lg text-white tracking-wide">
                 Отправить сообщение
               </button>
+
+              <div className="pt-2 border-t border-white/10">
+                <p className="text-white/30 text-xs mb-3">Или напишите напрямую менеджеру:</p>
+                <a
+                  href="https://t.me/Dmitriy_Alexeevich1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#229ED9]/10 border border-[#229ED9]/30 hover:bg-[#229ED9]/20 hover:border-[#229ED9]/50 transition-all duration-200 group"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-[#229ED9] flex items-center justify-center flex-shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.91c-.12.57-.45.71-.91.44l-2.52-1.86-1.22 1.17c-.13.13-.25.25-.51.25l.18-2.57 4.65-4.2c.2-.18-.04-.28-.31-.1L7.9 15.04l-2.46-.77c-.53-.17-.54-.53.12-.78l9.61-3.71c.44-.16.83.11.47.02z"/>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-white group-hover:text-[#229ED9] transition-colors">@Dmitriy_Alexeevich1</p>
+                    <p className="text-white/30 text-xs">Менеджер — ответит быстро</p>
+                  </div>
+                  <Icon name="ArrowRight" size={16} className="text-white/30 group-hover:text-[#229ED9] transition-colors" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
