@@ -27,12 +27,14 @@ const PRODUCTS: Product[] = [
 
 const CATEGORIES = ["Все", "Кухня"];
 
-const REVIEWS = [
-  { id: 1, name: "Алина К.", rating: 5, text: "Очень довольна покупкой! Товар точь-в-точь как на фото, качество отличное. Доставка быстрая, упаковано аккуратно. Буду заказывать ещё!", avatar: "А" },
-  { id: 2, name: "Максим Р.", rating: 5, text: "Заказывал уже несколько раз — всегда всё на высшем уровне. Товар из-за рубежа, но цены очень приятные. Рекомендую всем!", avatar: "М" },
-  { id: 3, name: "Дарья В.", rating: 5, text: "Нашла здесь то, что давно искала. Качество превзошло ожидания, менеджер ответил мгновенно и помог с выбором. Спасибо огромное!", avatar: "Д" },
-  { id: 4, name: "Илья С.", rating: 5, text: "Отличный магазин! Цены ниже, чем где-либо, а качество — выше всяких похвал. Получил заказ быстро, всё в целости.", avatar: "И" },
+const STATIC_REVIEWS = [
+  { id: 101, name: "Алина К.", rating: 5, text: "Очень довольна покупкой! Товар точь-в-точь как на фото, качество отличное. Доставка быстрая, упаковано аккуратно. Буду заказывать ещё!", avatar: "А" },
+  { id: 102, name: "Максим Р.", rating: 5, text: "Заказывал уже несколько раз — всегда всё на высшем уровне. Товар из-за рубежа, но цены очень приятные. Рекомендую всем!", avatar: "М" },
+  { id: 103, name: "Дарья В.", rating: 5, text: "Нашла здесь то, что давно искала. Качество превзошло ожидания, менеджер ответил мгновенно и помог с выбором. Спасибо огромное!", avatar: "Д" },
+  { id: 104, name: "Илья С.", rating: 5, text: "Отличный магазин! Цены ниже, чем где-либо, а качество — выше всяких похвал. Получил заказ быстро, всё в целости.", avatar: "И" },
 ];
+
+const REVIEWS_URL = "https://functions.poehali.dev/24cc6c2e-834e-4f32-9a29-ed66b5a44f4c";
 
 const NAV_LINKS = [
   { id: "home", label: "Главная" },
@@ -50,6 +52,39 @@ export default function Index() {
   const [activeCategory, setActiveCategory] = useState("Все");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedDelivery, setSelectedDelivery] = useState<string | null>(null);
+  const [reviews, setReviews] = useState(STATIC_REVIEWS as {id:number;name:string;rating:number;text:string;avatar:string}[]);
+  const [reviewForm, setReviewForm] = useState({ name: "", text: "", rating: 5 });
+  const [reviewSubmitting, setReviewSubmitting] = useState(false);
+  const [reviewSuccess, setReviewSuccess] = useState(false);
+  const [showReviewForm, setShowReviewForm] = useState(false);
+
+  useEffect(() => {
+    fetch(REVIEWS_URL)
+      .then(r => r.json())
+      .then(data => {
+        const parsed = typeof data === "string" ? JSON.parse(data) : data;
+        if (parsed.reviews && parsed.reviews.length > 0) {
+          setReviews([...STATIC_REVIEWS, ...parsed.reviews]);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const submitReview = async () => {
+    if (!reviewForm.name.trim() || !reviewForm.text.trim()) return;
+    setReviewSubmitting(true);
+    try {
+      const res = await fetch(REVIEWS_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(reviewForm) });
+      const raw = await res.json();
+      const data = typeof raw === "string" ? JSON.parse(raw) : raw;
+      setReviews(prev => [...prev, data]);
+      setReviewForm({ name: "", text: "", rating: 5 });
+      setReviewSuccess(true);
+      setShowReviewForm(false);
+      setTimeout(() => setReviewSuccess(false), 3000);
+    } catch (e) { console.error(e); }
+    setReviewSubmitting(false);
+  };
 
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
   const cartTotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
@@ -532,8 +567,8 @@ export default function Index() {
             <p className="text-white/30 mt-3">Более 1 200 довольных покупателей</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {REVIEWS.map(review => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+            {reviews.map(review => (
               <div key={review.id} className="p-5 rounded-2xl bg-vivid-card border border-white/10 card-hover">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-xl gradient-btn flex items-center justify-center font-oswald font-bold text-white">
@@ -551,6 +586,50 @@ export default function Index() {
                 <p className="text-white/50 text-sm leading-relaxed">{review.text}</p>
               </div>
             ))}
+          </div>
+
+          {/* Кнопка и форма добавления отзыва */}
+          <div className="flex justify-center">
+            {!showReviewForm ? (
+              <button onClick={() => setShowReviewForm(true)} className="gradient-btn px-8 py-3 rounded-2xl font-oswald font-semibold text-white text-lg">
+                + Оставить отзыв
+              </button>
+            ) : (
+              <div className="w-full max-w-lg p-6 rounded-2xl bg-vivid-card border border-vivid-purple/30">
+                <h3 className="font-oswald text-xl font-semibold text-white mb-4">Ваш отзыв</h3>
+                <div className="space-y-3">
+                  <input
+                    type="text"
+                    placeholder="Ваше имя"
+                    value={reviewForm.name}
+                    onChange={e => setReviewForm(p => ({ ...p, name: e.target.value }))}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 outline-none focus:border-vivid-purple/50"
+                  />
+                  <textarea
+                    placeholder="Расскажите о покупке..."
+                    rows={3}
+                    value={reviewForm.text}
+                    onChange={e => setReviewForm(p => ({ ...p, text: e.target.value }))}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 outline-none focus:border-vivid-purple/50 resize-none"
+                  />
+                  <div className="flex items-center gap-2">
+                    <span className="text-white/40 text-sm">Оценка:</span>
+                    {[1,2,3,4,5].map(s => (
+                      <button key={s} onClick={() => setReviewForm(p => ({ ...p, rating: s }))} className={`text-xl ${s <= reviewForm.rating ? "text-vivid-yellow" : "text-white/20"}`}>★</button>
+                    ))}
+                  </div>
+                  <div className="flex gap-3">
+                    <button onClick={submitReview} disabled={reviewSubmitting} className="flex-1 gradient-btn py-3 rounded-xl font-semibold text-white disabled:opacity-50">
+                      {reviewSubmitting ? "Отправка..." : "Отправить"}
+                    </button>
+                    <button onClick={() => setShowReviewForm(false)} className="px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white/40">
+                      Отмена
+                    </button>
+                  </div>
+                  {reviewSuccess && <p className="text-center text-vivid-cyan text-sm">Спасибо за отзыв!</p>}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
